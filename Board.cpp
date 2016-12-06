@@ -278,6 +278,7 @@ int Board::animalPoints(int i, int j)
 	const int DEER_POINTS = 2;
 	const int BOAR_POINTS = 2;
 	const int BUFFALO_POINTS = 2;
+	const int GOAT_POINTS = 2;
 	const int CROCODILE_POINTS = -2;
 	int points = 0;
 	// You'll check the tile for existence of animal/dens listed above and add points accordingly if present
@@ -300,6 +301,10 @@ int Board::animalPoints(int i, int j)
 	if (m_board[i][j]->hasCrocodile())
 	{
 		points += CROCODILE_POINTS;
+	}
+	if (m_board[i][j]->hasGoat())
+	{
+		points += GOAT_POINTS;
 	}
 	return points;
 }
@@ -325,6 +330,10 @@ void Board::place_tile(std::pair<int, int> location, Tile &tile)
 void Board::placeMeeple(int i, int j, std::pair<int, int> location)
 {
 	m_board[i][j]->placeMeeple(location);
+}
+void Board::placeGoatMeeple(int i, int j, std::pair<int, int> location)
+{
+	m_board[i][j]->placeGoat(location);
 }
 
 // Method to begin constructing the jungle structure once we find a section of the tile that has a jungle feature
