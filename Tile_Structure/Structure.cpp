@@ -10,8 +10,8 @@ Structure::Structure(std::string type, std::pair<int,int> blockCoords) {
 	this->deerCount = 0;
 	this->buffaloCount = 0;
 	this->crocodileCount = 0;
+	this->GoatCount = 0;
 	this->hasMeeple = false;
-	this->hasGoatMeeple = false;
 }
 
 Structure::Structure(std::string type) {
