@@ -12,6 +12,7 @@ Game::Game(std::string gameId, Player p1, Player p2, TileStack t, Tile startingT
 	gameboard.place_tile(startingCoordinates, *startTile);
 
 	numMeeples = 7;
+	numGoatMeeples = 3;
 	player1 = p1;
 	player2 = p2;
 	this->gameId = gameId;
@@ -113,6 +114,7 @@ std::string Game::makeMove(Tile tile, std::string moveNumber) {
 		  	tiger = meepleAi(optimalLocation.first, optimalLocation.second);
 			// if we placed a tiger subtract from the number of tigers we have
 			if (tiger != " NONE") numMeeples--;
+			if (GoatMeeple!= " NONE") numGoatMeeples--;
 		}
 
 		std::pair<int,int> convertCoordinates = adapter.convertCoordinates(optimalLocation);
@@ -127,6 +129,7 @@ std::string Game::makeMove(Tile tile, std::string moveNumber) {
 	}
 
 }
+
 
 // Hueristic to have an ai that can place down meeples in correct spots and values some more than others
 std::string Game::meepleAi(int i, int j)
