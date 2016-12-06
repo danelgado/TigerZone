@@ -428,6 +428,21 @@ Tile::Tile(int type)
     this->type = '!';
     initialization = true;
   }
+else if (type==29)
+ {
+    setRow(0,'m','l','m');
+    setRow(1,'t','t','t');
+    setRow(2,'m','l','m');
+    setFaceTypes();
+    rotation = 0;
+    num = 29;
+    boar = false;
+    buffalo = false;
+    deer = false;
+    crocodile = false;
+    this->type = '$';
+    initialization = true;
+ }
   else
   {
     rotation = 0;
