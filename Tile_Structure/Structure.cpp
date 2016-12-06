@@ -11,6 +11,7 @@ Structure::Structure(std::string type, std::pair<int,int> blockCoords) {
 	this->buffaloCount = 0;
 	this->crocodileCount = 0;
 	this->hasMeeple = false;
+	this->hasGoatMeeple = false;
 }
 
 Structure::Structure(std::string type) {
@@ -20,10 +21,12 @@ Structure::Structure(std::string type) {
 	this->buffaloCount = 0;
 	this->crocodileCount = 0;
 	this->hasMeeple = false;
+	this->hasGoatMeeple = false;
 }
 
 Structure::Structure() {
 	this->hasMeeple = false;
+	this->hasGoatMeeple = false;
 }
 
 Structure::~Structure() {
@@ -40,4 +43,6 @@ void Structure::checkAnimals(Tile *tile) {
 		this->boarCount++;
 	if(tile->hasBuffalo())
 		this->buffaloCount++;
+	if(tile->hasGoat())
+		this->GoatCount++;
 }
