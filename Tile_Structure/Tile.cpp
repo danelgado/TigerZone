@@ -560,3 +560,7 @@ void Tile::placeMeeple(std::pair<int, int> location)
 {
 	innerBlocks[location.first][location.second].placeMeeple();
 }
+void Tile::placeGoatMeeple()
+{
+	//placemeeple	
+}
