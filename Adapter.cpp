@@ -9,10 +9,10 @@ Adapter::~Adapter() {}
 /*Converts an tile number to the appropriate tile string
 GAME->SERVER*/
 std::string Adapter::tileToExpr(int i){
-	std::string tiles[28] = {"JJJJ-", "JJJJX", "JJTJX", "TTTT-", "TJTJ-",
+	std::string tiles[29] = {"JJJJ-", "JJJJX", "JJTJX", "TTTT-", "TJTJ-",
 		"TJJT-" , "TJTT-", "LLLL-", "JLLL-" , "LLJJ-", "JLJL-", "LJLJ-",
 		"LJJJ-", "JLLJ-", "TLJT-", "TLJTP", "JLTT-", "JLTTB", "TLTJ-" ,
-		"TLTJD", "TLLL-", "TLTT-" , "TLTTP", "TLLT-" , "TLLTB" , "LJTJ-", "LJTJD", "TLLLC"};
+		"TLTJD", "TLLL-", "TLTT-" , "TLTTP", "TLLT-" , "TLLTB" , "LJTJ-", "LJTJD", "TLLLC","LTLT-"};
 	return tiles[i-1];
 }
 
@@ -132,6 +132,10 @@ int Adapter::exprToTile(std::string &expr)
 	if (expr == "TLLLC")
 	{
 		return 28;
+	}
+	if(expr == "LTLT-")
+	{
+		return 29;
 	}
 	return -1;
 
