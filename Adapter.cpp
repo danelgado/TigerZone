@@ -298,7 +298,7 @@ values_t Adapter::translate(std::string message)
 	  return parseMakeMove(message);
 	}
 	if (message.compare(0,4,"GAME") == 0) // INITIAL ACCESS TO A GAME MESSAGE
-	{
+	{//This will now include the NEW message
 	  return parseGameMove(message);
 	}
 	return output;
@@ -366,14 +366,21 @@ values_t Adapter::parseMakeMove(std::string message)
   std::vector<std::string> messageWords(beg,end);   //Put all the words from the message into a vector
 
   std::string gameId = messageWords[5];       // Get the gameId from the string
+	if(messageWords[messageWords.size()-1] == tileType)
+	{
   std::string tileType = messageWords[messageWords.size()-1]; //get the tileType that we are about to place
   std::string moveNum = messageWords[messageWords.size()-3];  //get the move number
+	
 
   values_t out;
   out.gameId = gameId;
   out.tile_num = exprToTile(tileType);
   out.moveNumber = moveNum;
-
+	}
+	else
+	{
+		out = ;
+	}
   return out;
 }
 
